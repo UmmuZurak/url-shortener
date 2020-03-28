@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cyan: hsl(180, 66%, 49%);
+  --dark-violet: hsl(257, 27%, 26%);
+  --red: hsl(0, 87%, 67%);
+  --gray: hsl(0, 0%, 75%);
+  --grayish-violet: hsl(257, 7%, 63%);
+  --very-dark-blue: hsl(255, 11%, 22%);
+  --very-dark-violet: hsl(260, 8%, 14%);
+}
+
+html,
+body {
+  font-size: 1.1em;
+  color: var(--very-dark-blue);
+  font-family: "Poppins", sans-serif;
+}
+
+.menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  width: 85%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-nav {
+  display: flex;
+  margin-right: auto;
+}
+
+.menu-nav li,
+.menu-login li {
+  display: inline-block;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--grayish-violet);
+}
+
+.menu-logo {
+  margin-right: 2rem;
+  margin-top: 0.6rem;
+}
+
+.menu-nav li {
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.menu-login li:first-of-type {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.menu-login button {
+  background-color: var(--cyan);
+  color: white;
+  font-family: "Poppins";
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8em;
+  font-size: 0.8em;
+  font-weight: 500;
+}
