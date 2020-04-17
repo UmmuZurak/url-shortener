@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
 * {
   margin: 0;
@@ -19,9 +19,8 @@
 /* general styling */
 html,
 body {
-  font-size: 1em;
   color: var(--very-dark-blue);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 nav,
@@ -43,9 +42,11 @@ p {
 
 .menu,
 .header-content,
+.about-content,
 .footer-content {
   width: 80%;
   display: flex;
+  max-width: 1200px;
 }
 /* end of general styling */
 
@@ -89,25 +90,86 @@ p {
 .round-button {
   background-color: var(--cyan);
   color: white;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   border: none;
   padding: 0.5rem 1.2rem;
   border-radius: 8em;
   font-size: 1em;
   font-weight: 500;
 }
+
+.hide {
+  display: none;
+}
+
+.hamburger {
+  position: relative;
+}
+
+.fa-bars {
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+
+.bars-menu {
+  background: white;
+  padding-top: 5rem;
+  position: absolute; /* Add these */
+  top: -50px;
+  left: -145px;
+  z-index: 1;
+  text-align: center;
+  border-radius: 1px solid red;
+}
+
+.bars-menu ul {
+  background: var(--dark-violet);
+  padding: 0.6rem 0;
+  border-radius: 0.6rem;
+}
+
+.bars-menu li {
+  list-style: none;
+  padding: 0 40px 10px 20px;
+  margin: 10px;
+}
+
+.bars-menu a {
+  color: white;
+}
+
+.sign-up {
+  background-color: var(--cyan);
+  color: white;
+  font-family: 'Poppins';
+  border: none;
+  padding: 0.4rem 0.3rem;
+  border-radius: 1em;
+  font-size: 1em;
+  font-weight: 500;
+  width: 80%;
+  margin-bottom: 0.6rem;
+}
+
+hr {
+  width: 80%;
+  margin: 0 auto;
+  border: 0;
+  height: 0.5px;
+  background: var(--gray);
+}
 /* end of menu styling */
 
 /* header styling */
 .header-content {
-  /* border: 1px solid red; */
   justify-content: space-between;
-  padding: 6rem 0;
   margin-bottom: 7rem;
   position: relative;
 }
 
 .header-content-text {
+  padding: 6rem 0;
   width: 50%;
 }
 .header-content-text h1 {
@@ -137,8 +199,6 @@ p {
 }
 
 .about-content {
-  width: 80%;
-  display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -153,7 +213,7 @@ p {
 .form-container {
   width: 100%;
   padding: 2rem;
-  background: var(--dark-violet) url("../images/bg-shorten-desktop.svg");
+  background: var(--dark-violet) url('../images/bg-shorten-desktop.svg');
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -290,9 +350,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 5.4rem;
   width: 5.4rem;
-  position: absolute;
-  top: -17%;
+  margin-top: -3.5rem;
 }
 
 .item-image img {
@@ -300,7 +360,7 @@ p {
 }
 
 .item-text {
-  margin-top: 2.5rem;
+  margin-top: 1.3rem;
 }
 
 .item-text h3 {
@@ -333,7 +393,7 @@ p {
 
 /* register styling */
 .register-container {
-  background: var(--dark-violet) url("../images/bg-boost-desktop.svg");
+  background: var(--dark-violet) url('../images/bg-boost-desktop.svg');
 }
 
 .register-content {
@@ -396,11 +456,72 @@ footer li {
 
 /* respnsiveness */
 @media (max-width: 600px) {
+  .menu-nav {
+    display: none;
+  }
+
+  .menu-login {
+    display: none;
+  }
+
+  .header-content {
+    flex-direction: column;
+  }
+
+  .header-content img {
+    position: relative;
+    width: 100%;
+    left: 0;
+    order: -1;
+    padding-top: 4rem;
+  }
+
+  .header-content-text {
+    padding: 4rem 0;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 990px) {
+  .menu-nav {
+    display: none;
+  }
+
+  .menu-login {
+    display: none;
+  }
+
+  .header-content-text {
+    padding: 4rem 0;
+  }
+
+  .header-content-text {
+    padding: 6rem 0;
+    width: 45%;
+  }
+  .header-content-text h1 {
+    font-size: 2em;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .header-content-text p {
+    font-size: 0.8em;
+    margin-bottom: 1.2rem;
+  }
+
+  .header-content img {
+    position: absolute;
+    width: 60%;
+    left: 52%;
+    bottom: 5%;
+  }
 }
 
 @media (min-width: 991px) {
+  .hamburger {
+    display: none;
+  }
 }
 /* end of responsiveness */
