@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Api-shortener</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="menu-container">
-      <nav class="menu">
+    <nav class="menu-container">
+      <div class="menu">
         <div class="menu-logo">
-          <a href="#"><img src="images/logo.svg" alt=""/></a>
+          <a href="#"><img src="images/logo.svg" alt="logo"/></a>
         </div>
         <div class="menu-nav">
           <ul>
@@ -22,10 +26,145 @@
         <div class="menu-login">
           <ul>
             <li><a href="#">Link</a></li>
-            <li><button>Sign Up</button></li>
+            <li><button class="round-button">Sign Up</button></li>
           </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+    <header class="header-container">
+      <div class="header-content">
+        <div class="header-content-text">
+          <h1>More than just shorter links</h1>
+          <p>
+            Build your brand's recognition and get detailed insights on how you
+            links work.
+          </p>
+          <button class="round-button">Get Started</button>
+        </div>
+        <img src="images/illustration-working.svg" alt="" />
+      </div>
+    </header>
+    <section class="about-container">
+      <div class="about-content">
+        <div class="form-container" id="formContainer">
+          <form action="" class="search-form" id="postLink">
+            <input
+              id="input"
+              class="search"
+              type="text"
+              placeholder="Shorten a link here.."
+            />
+            <input
+              id="submit"
+              type="submit"
+              value="Shorten it!"
+              class="submit"
+            />
+          </form>
+        </div>
+        <div class="links-container" id="linksContainer"></div>
+        <div class="about-content-text">
+          <div class="text-title">
+            <h2>Advanced Statistics</h2>
+            <p>
+              Track how your links are performing across the web with our
+              advance statistics dashboard
+            </p>
+          </div>
+          <div class="text-content">
+            <div class="text-content-item">
+              <div class="item-image">
+                <img src="images/icon-brand-recognition.svg" alt="" />
+              </div>
+              <div class="item-text">
+                <h3>Brand Recognition</h3>
+                <p>
+                  Track how your links are performing across the web with our
+                  advance statistics dashboard.Track how your links are
+                  performing across the web with our advance statistics
+                  dashboard
+                </p>
+              </div>
+            </div>
+            <div class="text-content-item">
+              <div class="item-image">
+                <img src="images/icon-detailed-records.svg" alt="" />
+              </div>
+              <div class="item-text">
+                <h3>Detailed Records</h3>
+                <p>
+                  Track how your links are performing across the web with our
+                  advance statistics dashboard.Track how your links are
+                  performing across the web with our advance statistics
+                  dashboard
+                </p>
+              </div>
+            </div>
+            <div class="text-content-item">
+              <div class="item-image last">
+                <img src="images/icon-fully-customizable.svg" alt="" />
+              </div>
+              <div class="item-text">
+                <h3>Fully Customizable</h3>
+                <p>
+                  Track how your links are performing across the web with our
+                  advance statistics dashboard.Track how your links are
+                  performing across the web with our advance statistics
+                  dashboard
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+        </div>
+      </div>
+    </section>
+    <section class="register-container">
+      <div class="register-content">
+        <h2>Boost your links today</h2>
+        <button class="round-button">Get Started</button>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Shortly</h2>
+        </div>
+        <div class="footer-text">
+          <div class="footer-text-item">
+            <h4>Features</h4>
+            <ul>
+              <li><a href="#">Link Shortening</a></li>
+              <li><a href="#">Branded Links</a></li>
+              <li><a href="#">Analytics</a></li>
+            </ul>
+          </div>
+          <div class="footer-text-item">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Developers</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-text-item">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-text-item">
+            <img src="images/icon-facebook.svg" alt="fb" />
+            <img src="images/icon-twitter.svg" alt="twitter" />
+            <img src="images/icon-pinterest.svg" alt="pinterest" />
+            <img src="images/icon-instagram.svg" alt="instagram" />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
