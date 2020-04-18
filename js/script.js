@@ -2,11 +2,14 @@ let postLink = document.getElementById('postLink');
 let input = document.getElementById('input');
 let formContainer = document.getElementById('formContainer');
 let linksContainer = document.getElementById('linksContainer');
+let linksArray = localStorage.getItem('linksList')
+  ? JSON.parse(localStorage.getItem('linksList'))
+  : [];
 
-let copyLinks = document.getElementsByClassName('copyLink');
+localStorage.setItem('linksList', JSON.stringify(linksArray));
+const links = JSON.parse(localStorage.getItem('linksList'));
 
 postLink.addEventListener('submit', getLink);
-// copyBtns.addEventListener('click', copyTxt);
 
 async function getLink(e) {
   e.preventDefault();
@@ -25,6 +28,7 @@ async function getLink(e) {
 
     if (input.value !== '') {
       displayLink(data);
+      resetInput();
       handleCopyBtns();
     } else {
       displayValidation();
@@ -35,7 +39,14 @@ async function getLink(e) {
 }
 
 function displayLink(result) {
-  linksContainer.innerHTML += `<div class="link"><span>${input.value}</span><span class="copyLink">https://rel.ink/${result.hashid}</span><input type="button" class="copyBtn" value="copy"/></div>`;
+  linksContainer.innerHTML += `<div class="link">
+                              <span>${input.value}</span>
+                              <span class="copyLink">https://rel.ink/${result.hashid}</span>
+                              <input type="button" class="copyBtn" value="copy"/>
+                              </div>`;
+
+  linksArray.push({ input: input.value, hashcode: result.hashid });
+  localStorage.setItem('linksList', JSON.stringify(linksArray));
 }
 
 function displayValidation() {
@@ -45,23 +56,6 @@ function displayValidation() {
   formContainer.appendChild(p);
   input.classList.add('validate-form');
 }
-
-// function copyTxt(e) {
-//   let copyLink = document.getElementsByName('copyLink');
-//   let copyBtn = document.getElementsByName('copyBtn');
-//   let range = document.createRange();
-//   range.selectNodeContents(copyLink);
-//   var selection = window.getSelection();
-//   selection.removeAllRanges();
-//   selection.addRange(range);
-
-//   document.execCommand('copy');
-//   // alert('text-copied');
-//   copyBtn.value = 'copied!';
-//   copyBtn.style.backgroundColor = 'hsl(257, 27%, 26%)';
-
-//   console.log('clicked');
-// }
 
 function handleCopyBtns() {
   let copyBtns = document.getElementsByClassName('copyBtn');
@@ -82,8 +76,17 @@ function handleCopyBtns() {
   }
 }
 
-// function copyText(button) {
-//   console.log('clicked');
-//   console.log(textEl);
-//   console.log(button);
-// }
+function resetInput() {
+  input.value = '';
+}
+
+links.forEach((link) => displayStoredLinks(link));
+
+function displayStoredLinks(item) {
+  linksContainer.innerHTML += `<div class="link">
+                              <span>${item.input}</span>
+                              <span class="copyLink">https://rel.ink/${item.hashcode}</span>
+                              <input type="button" class="copyBtn" value="copy"/>
+                              </div>`;
+  handleCopyBtns();
+}

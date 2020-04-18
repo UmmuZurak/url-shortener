@@ -225,6 +225,7 @@ hr {
 .search-form {
   width: 90%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -277,6 +278,7 @@ hr {
   border-radius: 0.3em;
   margin: 1rem 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -413,6 +415,7 @@ footer {
 }
 .footer-content {
   padding: 4rem 0;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -424,6 +427,7 @@ footer {
 .footer-text {
   width: 70%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   color: white;
 }
@@ -456,6 +460,12 @@ footer li {
 
 /* respnsiveness */
 @media (max-width: 600px) {
+  .menu,
+  .header-content,
+  .about-content,
+  .footer-content {
+    width: 90%;
+  }
   .menu-nav {
     display: none;
   }
@@ -480,6 +490,92 @@ footer li {
     padding: 4rem 0;
     width: 100%;
     text-align: center;
+  }
+
+  .search-form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-form > input {
+    width: 100%;
+    margin: 0.4rem 0;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+
+  .link {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .link span {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .link input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .text-title {
+    width: 100%;
+  }
+
+  .text-content {
+    justify-content: center;
+  }
+
+  .text-content-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 2rem;
+  }
+  .text-content-item:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .item-image {
+    margin-top: -70px;
+  }
+
+  .item-text {
+    text-align: center;
+  }
+
+  .divider {
+    width: 5px;
+    height: 50%;
+    background: var(--cyan);
+    position: absolute;
+    top: 20.5rem;
+  }
+
+  .footer-content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-content > div {
+    width: 100%;
+  }
+
+  .footer-text {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-text-item {
+    width: 100%;
   }
 }
 
