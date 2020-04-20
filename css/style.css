@@ -249,8 +249,17 @@ hr {
   outline: none;
 }
 
-.validate {
+.validate-input {
   color: var(--red);
+  margin-top: 0.5rem;
+  display: flex;
+  align-self: flex-start;
+  margin-left: 3rem;
+  font-style: italic;
+}
+
+.validate-url {
+  color: var(--gray);
   margin-top: 0.5rem;
   display: flex;
   align-self: flex-start;
@@ -265,6 +274,15 @@ hr {
 
 .validate-form::placeholder {
   color: var(--red);
+}
+
+.validate-form2 {
+  border: 1px solid var(--gray);
+  color: var(--gray);
+}
+
+.validate-form2::placeholder {
+  color: var(--gray);
 }
 
 .links-container {
@@ -492,6 +510,12 @@ footer li {
     text-align: center;
   }
 
+  .header-content-text h1 {
+    font-size: 2.5em;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
+  }
+
   .search-form {
     width: 100%;
     display: flex;
@@ -506,6 +530,7 @@ footer li {
 
   .form-container {
     padding: 1rem;
+    margin-top: -5.1rem;
   }
 
   .link {
@@ -566,6 +591,8 @@ footer li {
 
   .footer-content > div {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .footer-text {
@@ -576,6 +603,12 @@ footer li {
 
   .footer-text-item {
     width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-text-item:last-of-type {
+    margin-bottom: 0;
   }
 }
 
@@ -612,6 +645,44 @@ footer li {
     width: 60%;
     left: 52%;
     bottom: 5%;
+  }
+
+  .search {
+    width: 70%;
+  }
+
+  .submit {
+    width: 28%;
+  }
+
+  .text-content {
+    justify-content: center;
+  }
+
+  .text-content-item {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    margin-bottom: 4rem;
+    padding: 2rem;
+  }
+  .text-content-item:last-of-type {
+    margin-bottom: 0;
+    top: 0;
+  }
+
+  .text-content-item:first-of-type {
+    position: relative;
+    top: 0;
+    margin-right: 4%;
+  }
+
+  .item-image {
+    margin-top: -76px;
+  }
+
+  .divider {
+    display: none;
   }
 }
 

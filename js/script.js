@@ -13,6 +13,16 @@ postLink.addEventListener('submit', getLink);
 
 async function getLink(e) {
   e.preventDefault();
+  let regex1 = /^[h]\w*\:\/\/.*\..*$/;
+  let regex2 = /^\w.*\.(\w{2,3})$/;
+  let regex3 = /\w*/;
+  let newUrl;
+
+  if (regex2.test(input.value) === true) {
+    newUrl = `http://${input.value}`;
+  } else {
+    newUrl = input.value;
+  }
 
   try {
     const res = await fetch('https://rel.ink/api/links/', {
@@ -21,17 +31,29 @@ async function getLink(e) {
         Accept: 'application/json, text/plain, */*',
         'Content-type': 'application/json',
       },
-      body: JSON.stringify({ url: `${input.value}` }),
+      body: JSON.stringify({ url: `${newUrl}` }),
     });
 
     const data = await res.json();
 
-    if (input.value !== '') {
+    if (data.hashid !== undefined) {
       displayLink(data);
       resetInput();
       handleCopyBtns();
-    } else {
-      displayValidation();
+    } else if (input.value === '') {
+      displayValidation(
+        'p',
+        'Please add a link',
+        'validate-input',
+        'validate-form'
+      );
+    } else if (regex3.test(input.value) === true) {
+      displayValidation(
+        'p',
+        'Please add a valid link',
+        'validate-url',
+        'validate-form2'
+      );
     }
   } catch (error) {
     console.log(error);
@@ -49,12 +71,17 @@ function displayLink(result) {
   localStorage.setItem('linksList', JSON.stringify(linksArray));
 }
 
-function displayValidation() {
-  let p = document.createElement('p');
-  p.innerHTML = 'Please add a link';
-  p.classList.add('validate');
+function displayValidation(el, text, pClass, formClass) {
+  let p = document.createElement(el);
+  p.innerHTML = text;
+  p.classList.add(pClass);
   formContainer.appendChild(p);
-  input.classList.add('validate-form');
+  input.classList.add(formClass);
+
+  setTimeout(() => {
+    p.style.display = 'none';
+    input.classList.remove(formClass);
+  }, 5000);
 }
 
 function handleCopyBtns() {
@@ -71,7 +98,12 @@ function handleCopyBtns() {
 
       document.execCommand('copy');
       button.value = 'copied!';
-      button.style.backgroundColor = 'hsl(257, 27%, 26%)';
+      button.style.backgroundColor = 'var(--dark-violet)';
+
+      setTimeout(() => {
+        button.value = 'copy';
+        button.style.backgroundColor = 'var(--cyan)';
+      }, 2000);
     });
   }
 }
